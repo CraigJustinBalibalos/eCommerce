@@ -3,9 +3,11 @@
 	//include_once() - try to include (if ot previously included) and warn on failure
 	//require() - try to include and halt on failure
 	//require_once() - try to include (if ot previously included and halt on failure
-	if(!isset($_GET['url'])){
-		header('location:/');
-		exit();
-	}
+
+	//if(!isset($_GET['url'])){
+		//header('location:/');
+		//exit();
+	//}
+
 	require("app/core/init.php");
 	new app\core\App();
