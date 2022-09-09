@@ -33,4 +33,17 @@ class Main extends \app\core\Controller{
 		//For testing purposes
 		//var_dump($_POST); 
 	}
+
+	//Service that outputs JSON
+	public function foodsJSON(){
+		//Read the foods.txt into a variable
+		$food = new \app\models\Food();
+		$foods = $food->getAll();
+
+		echo json_encode($foods);
+	}
+
+	public function foodsAJAX(){
+		$this->view('Main/foodsAJAX');
+	}
 }
