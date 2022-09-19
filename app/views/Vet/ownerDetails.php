@@ -7,19 +7,36 @@
 		<!-- JavaScript Bundle with Popper -->
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
-		<title>Add Client</title>
+		<title>Client Details</title>
 
 	</head>
 
 	<body>
+	<dl>
+		<dt>
+			First Name:
+		</dt>
+		<dd>
+			<?= $data->first_name ?>
+		</dd>
 
-		<form action='' method='post'>
-			<label>First Name:<input type="text" name="first_name" /></label><br>
-			<label>Last Name:<input type="text" name="last_name" /></label><br>
-			<label>Contact: <input type="text" name="contact" /></label><br>
-			<input type="submit" name="action" value="Add Owner" />
-		</form>
+		<dt>
+			Last Name:
+		</dt>
+		<dd>
+			<?= $data->last_name ?>
+		</dd>
 
+		<dt>
+			Contact Name:
+		</dt>
+
+		<dd>
+			<?= $data->contact ?>
+		</dd>
+	</dl>
+
+	<a href='/Vet/index'>Back to Index</a>
 	</body>
 
 </html>

@@ -13,7 +13,7 @@ class vet extends \app\core\Controller{
 		$owners = $owner->getAll();
 
 		//Call a view and pass the collection for display
-		print_r($owners);
+		$this->view('Vet/index',$owners);
 	}
 
 	//Method to add a new owner to the database
@@ -33,6 +33,37 @@ class vet extends \app\core\Controller{
 		}
 		// else
 		// display the view with the form
-		$this->view('Vet/addOwner')
+		$this->view('Vet/addOwner');
+	}
+
+	public function delete($owner_id){
+		$owner = new \app\models\Owner();
+		$owner->owner_id = $owner_id;
+		$owner->delete();
+		//Redirect back to the list
+		header('location:/Vet/index');
+	}
+
+	public function edit($owner_id){
+		$owner = new \app\models\Owner();
+		$owner = $owner->get($owner_id); //Built in the Owner.php under the models folder
+		if(isset($_POST['action'])){
+			$owner->first_name = $_POST['first_name'];
+			$owner->last_name = $_POST['last_name'];
+			$owner->contact = $_POST['contact'];
+
+			$owner->update();
+
+			header('location:/Vet/index');
+		} 
+		else{
+			$this->view('Vet/editOwner', $owner);
+		}
+	}
+
+	public function details($owner_id){
+		$owner = new \app\models\Owner();
+		$owner = $owner->get($owner_id);
+		$this->view('Vet/ownerDetails', $owner);
 	}
 }

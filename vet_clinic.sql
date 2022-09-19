@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `vet_clinic`
 --
+CREATE DATABASE IF NOT EXISTS `vet_clinic` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `vet_clinic`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `animal`
 --
 
+DROP TABLE IF EXISTS `animal`;
 CREATE TABLE `animal` (
   `animal_id` int(11) NOT NULL,
   `owner_id` int(11) NOT NULL,
@@ -40,6 +43,7 @@ CREATE TABLE `animal` (
 -- Table structure for table `owner`
 --
 
+DROP TABLE IF EXISTS `owner`;
 CREATE TABLE `owner` (
   `owner_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -52,7 +56,8 @@ CREATE TABLE `owner` (
 --
 
 INSERT INTO `owner` (`owner_id`, `first_name`, `last_name`, `contact`) VALUES
-(1, 'Robert', 'Bobster', 'rbobster@hotmail.com');
+(1, 'Mr', 'Green', 'mrgreen@hotmail.com'),
+(2, 'Mister', 'Pink', 'mrpink@hotmail.com');
 
 --
 -- Indexes for dumped tables
@@ -85,7 +90,7 @@ ALTER TABLE `animal`
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `owner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
