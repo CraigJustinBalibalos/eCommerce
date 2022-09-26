@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2022 at 06:49 PM
+-- Generation Time: Sep 26, 2022 at 05:52 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -34,7 +34,8 @@ CREATE TABLE `animal` (
   `animal_id` int(11) NOT NULL,
   `owner_id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `dob` date NOT NULL
+  `dob` date NOT NULL,
+  `profile_pic` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------

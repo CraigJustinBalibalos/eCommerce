@@ -8,10 +8,8 @@ class vet extends \app\core\Controller{
 
 		//Make an owner object
 		$owner = new \app\models\Owner();
-
 		//Call getAll on that object to get the collectionof all owners
 		$owners = $owner->getAll();
-
 		//Call a view and pass the collection for display
 		$this->view('Vet/index',$owners);
 	}
@@ -39,6 +37,7 @@ class vet extends \app\core\Controller{
 	public function delete($owner_id){
 		$owner = new \app\models\Owner();
 		$owner->owner_id = $owner_id;
+		$owner->deleteAnimals();
 		$owner->delete();
 		//Redirect back to the list
 		header('location:/Vet/index');

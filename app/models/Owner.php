@@ -59,6 +59,15 @@ class Owner extends \app\core\Model{
 						'owner_id'=>$this->owner_id]);
 	}
 
+	public function deleteAnimals(){
+		//Run DELETE statement
+		$SQL = "DELETE FROM animal WHERE owner_id=:owner_id";
+		//$_connection is located in Model.php under the core folder
+		$STMT = self::$_connection->prepare($SQL);
+		//This is where we would pass the data
+		$STMT->execute(['owner_id'=>$this->owner_id]);
+	}
+
 	public function delete(){
 		//Run "DELETE SQL statement"
 		$SQL = "DELETE FROM owner WHERE owner_id=:owner_id";
@@ -67,6 +76,5 @@ class Owner extends \app\core\Model{
 		//This is where we would pass the data
 		$STMT->execute(['owner_id'=>$this->owner_id]);
 	}
-
 
 }
